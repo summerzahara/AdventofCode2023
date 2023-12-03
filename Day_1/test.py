@@ -1,19 +1,7 @@
 from icecream import ic
-
-test_text_2 = ["two1nine", "eightwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234",
-               "7pqrstsixteen"]
-
 map_valid_nums = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9}
-
-
-# Open the file and convert to list of strings
-def open_input_file():
-    with open("day_1_input.txt", "r") as file:
-        data = [item.strip() for item in file.readlines()]
-        return data
-
-
-# Get the first number
+test_word = "onesevenvchtfkbfkgzrhzhpsg3six"
+test_2 = "6six26gkj2"
 def first(word):
     first_digit = []
     while True:
@@ -28,11 +16,11 @@ def first(word):
                 break
         if word[0].isalpha():
             word = word[1:]
+            ic(word)
             continue
+    ic(first_digit)
     return first_digit
 
-
-# Get the last number
 def last(word):
     last_digit = []
     while True:
@@ -47,18 +35,10 @@ def last(word):
                 break
         if word[-1].isalpha():
             word = word[:-1]
+            ic(word)
             continue
+    ic(last_digit)
     return last_digit
 
-
-# Get calibrate num from first and last digits and out put the sum
-def all_word(word_list):
-    final_list = []
-    for word in word_list:
-        calibration = str(first(word)[0]) + str(last(word)[0])
-        final_list.append(int(calibration))
-    total = sum(final_list)
-    return total
-
-
-ic(all_word(open_input_file()))
+calibration = str(first(test_2)[0]) + str(last(test_2)[0])
+ic(calibration)
